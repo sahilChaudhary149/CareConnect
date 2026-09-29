@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Book Appointment - CareConnect</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #0d6efd;
+            color: white;
+            padding: 18px 40px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 450px;
+            margin: 50px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #0d6efd;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 12px;
+            background: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0b5ed7;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #0d6efd;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    CareConnect
+</div>
+
+<div class="container">
+
+    <h2>Book Appointment</h2>
+
+    <form th:action="@{/book-appointment}"
+          th:object="${appointment}"
+          method="post">
+
+        <label>Patient ID</label>
+        <input type="number"
+               th:field="*{patientId}"
+               placeholder="Enter Patient ID"
+               required>
+
+        <label>Doctor ID</label>
+        <input type="number"
+               th:field="*{doctorId}"
+               placeholder="Enter Doctor ID"
+               required>
+
+        <label>Appointment Date</label>
+        <input type="datetime-local"
+               th:field="*{appointmentDate}"
+               required>
+
+        <label>Reason for Visit</label>
+        <textarea th:field="*{reason}"
+                  placeholder="Enter reason for appointment"
+                  rows="4"
+                  required></textarea>
+
+        <button type="submit">
+            Book Appointment
+        </button>
+
+    </form>
+
+    <a href="/patient-dashboard" class="back">
+        Back to Patient Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>

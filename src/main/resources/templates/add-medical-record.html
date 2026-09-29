@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>CareConnect - Add Medical Record</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f8fb;
+            margin: 0;
+        }
+
+        .container {
+            width: 500px;
+            margin: 60px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            color: #1976d2;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 11px;
+            margin-top: 7px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        textarea {
+            height: 130px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 20px;
+            padding: 12px;
+            background: #1976d2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Add Medical Record</h1>
+
+    <form action="/add-medical-record" method="post">
+
+        <label>Patient ID</label>
+
+        <input
+                type="number"
+                name="patientId"
+                required
+        >
+
+        <label>Doctor ID</label>
+
+        <input
+                type="number"
+                name="doctorId"
+                required
+        >
+
+        <label>Diagnosis</label>
+
+        <input
+                type="text"
+                name="diagnosis"
+                placeholder="Enter diagnosis"
+                required
+        >
+
+        <label>Clinical Notes</label>
+
+        <textarea
+                name="clinicalNotes"
+                placeholder="Enter clinical notes"
+                required>
+        </textarea>
+
+        <button type="submit">
+            Save Medical Record
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

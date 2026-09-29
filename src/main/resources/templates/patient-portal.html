@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Portal - CareConnect</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #0d6efd;
+            color: white;
+            padding: 18px 40px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 90%;
+            margin: 35px auto;
+        }
+
+        h2 {
+            color: #0d6efd;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            margin-top: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #0d6efd;
+            color: white;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 18px;
+            background: #0d6efd;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    CareConnect - Patient Portal
+</div>
+
+<div class="container">
+
+    <h2>Patient Portal</h2>
+
+    <p>
+        Patient ID:
+        <strong th:text="${patientId}"></strong>
+    </p>
+
+
+    <!-- Appointments -->
+
+    <h2>My Appointments</h2>
+
+    <table>
+
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Doctor ID</th>
+            <th>Date & Time</th>
+            <th>Reason</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr th:each="appointment : ${appointments}">
+
+            <td th:text="${appointment.id}"></td>
+
+            <td th:text="${appointment.doctorId}"></td>
+
+            <td th:text="${appointment.appointmentDate}"></td>
+
+            <td th:text="${appointment.reason}"></td>
+
+            <td th:text="${appointment.status}"></td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+
+    <!-- Medical Records -->
+
+    <h2>My Medical Records</h2>
+
+    <table>
+
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Doctor ID</th>
+            <th>Diagnosis</th>
+            <th>Clinical Notes</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr th:each="record : ${medicalRecords}">
+
+            <td th:text="${record.id}"></td>
+
+            <td th:text="${record.doctorId}"></td>
+
+            <td th:text="${record.diagnosis}"></td>
+
+            <td th:text="${record.clinicalNotes}"></td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+
+    <!-- Prescriptions -->
+
+    <h2>My Prescriptions</h2>
+
+    <table>
+
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Doctor ID</th>
+            <th>Medicine</th>
+            <th>Dosage</th>
+            <th>Duration</th>
+            <th>Instructions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr th:each="prescription : ${prescriptions}">
+
+            <td th:text="${prescription.id}"></td>
+
+            <td th:text="${prescription.doctorId}"></td>
+
+            <td th:text="${prescription.medicineName}"></td>
+
+            <td th:text="${prescription.dosage}"></td>
+
+            <td th:text="${prescription.duration}"></td>
+
+            <td th:text="${prescription.instructions}"></td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+
+    <a href="/book-appointment" class="button">
+        Book Appointment
+    </a>
+
+    <a href="/patient-dashboard" class="button">
+        Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>

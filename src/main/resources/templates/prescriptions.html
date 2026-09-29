@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Prescriptions - CareConnect</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #0d6efd;
+            color: white;
+            padding: 18px 40px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 95%;
+            margin: 40px auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0d6efd;
+            margin-bottom: 25px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #0d6efd;
+            color: white;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 18px;
+            background: #0d6efd;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .button:hover {
+            background: #0b5ed7;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    CareConnect - Prescriptions
+</div>
+
+<div class="container">
+
+    <h2>Prescription List</h2>
+
+    <table>
+
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Patient ID</th>
+            <th>Doctor ID</th>
+            <th>Medicine</th>
+            <th>Dosage</th>
+            <th>Duration</th>
+            <th>Instructions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr th:each="prescription : ${prescriptions}">
+
+            <td th:text="${prescription.id}"></td>
+
+            <td th:text="${prescription.patientId}"></td>
+
+            <td th:text="${prescription.doctorId}"></td>
+
+            <td th:text="${prescription.medicineName}"></td>
+
+            <td th:text="${prescription.dosage}"></td>
+
+            <td th:text="${prescription.duration}"></td>
+
+            <td th:text="${prescription.instructions}"></td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+
+
+    <a href="/patient-dashboard" class="button">
+        Back to Patient Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>

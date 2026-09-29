@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Doctor Dashboard - CareConnect</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #0d6efd;
+            color: white;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h2 {
+            margin: 0;
+        }
+
+        .logout {
+            color: white;
+            text-decoration: none;
+            background: #dc3545;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+
+        h1 {
+            color: #0d6efd;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            color: #0d6efd;
+        }
+
+        .card p {
+            color: #666;
+            min-height: 45px;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 18px;
+            background: #0d6efd;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .button:hover {
+            background: #0b5ed7;
+        }
+
+        @media (max-width: 700px) {
+            .cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <h2>CareConnect</h2>
+
+    <a href="/logout" class="logout">
+        Logout
+    </a>
+
+</div>
+
+<div class="container">
+
+    <h1>Doctor Dashboard</h1>
+
+    <p>Manage patient care and clinical information.</p>
+
+    <div class="cards">
+
+        <!-- Appointments -->
+
+        <div class="card">
+
+            <h3>Appointments</h3>
+
+            <p>
+                View and manage patient appointments.
+            </p>
+
+            <a href="/appointments" class="button">
+                View Appointments
+            </a>
+
+        </div>
+
+
+        <!-- Medical Records -->
+
+        <div class="card">
+
+            <h3>Clinical Documentation</h3>
+
+            <p>
+                Add diagnosis and clinical notes
+                for patients.
+            </p>
+
+            <a href="/add-medical-record" class="button">
+                Add Medical Record
+            </a>
+
+        </div>
+
+
+        <!-- Prescriptions -->
+
+        <div class="card">
+
+            <h3>Prescriptions</h3>
+
+            <p>
+                Create prescriptions for patients.
+            </p>
+
+            <a href="/add-prescription" class="button">
+                Add Prescription
+            </a>
+
+        </div>
+
+
+        <!-- Medical Records -->
+
+        <div class="card">
+
+            <h3>Medical Records</h3>
+
+            <p>
+                View clinical records stored in CareConnect.
+            </p>
+
+            <a href="/medical-records" class="button">
+                View Records
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

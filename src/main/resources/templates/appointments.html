@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Appointments - CareConnect</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #0d6efd;
+            color: white;
+            padding: 18px 40px;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .container {
+            width: 90%;
+            margin: 40px auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0d6efd;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #0d6efd;
+            color: white;
+        }
+
+        .status {
+            font-weight: bold;
+        }
+
+        .confirm {
+            background: #198754;
+            color: white;
+            padding: 7px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .reject {
+            background: #dc3545;
+            color: white;
+            padding: 7px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 18px;
+            background: #0d6efd;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+    CareConnect - Appointments
+</div>
+
+<div class="container">
+
+    <h2>Appointment List</h2>
+
+    <table>
+
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Patient ID</th>
+            <th>Doctor ID</th>
+            <th>Date & Time</th>
+            <th>Reason</th>
+            <th>Status</th>
+            <th th:if="${isDoctor}">Action</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr th:each="appointment : ${appointments}">
+
+            <td th:text="${appointment.id}"></td>
+
+            <td th:text="${appointment.patientId}"></td>
+
+            <td th:text="${appointment.doctorId}"></td>
+
+            <td th:text="${appointment.appointmentDate}"></td>
+
+            <td th:text="${appointment.reason}"></td>
+
+            <td class="status"
+                th:text="${appointment.status}">
+            </td>
+
+            <td th:if="${isDoctor}">
+
+                <a class="confirm"
+                   th:href="@{/appointment/confirm/{id}(id=${appointment.id})}">
+                    Confirm
+                </a>
+
+                <a class="reject"
+                   th:href="@{/appointment/reject/{id}(id=${appointment.id})}">
+                    Reject
+                </a>
+
+            </td>
+
+        </tr>
+
+        </tbody>
+
+    </table>
+
+    <a th:if="${!isDoctor}"
+       href="/book-appointment"
+       class="back">
+        + Book New Appointment
+    </a>
+
+    <a th:if="${isDoctor}"
+       href="/doctor-dashboard"
+       class="back">
+        Back to Dashboard
+    </a>
+
+    <a th:if="${!isDoctor}"
+       href="/patient-dashboard"
+       class="back">
+        Back to Dashboard
+    </a>
+
+</div>
+
+</body>
+</html>

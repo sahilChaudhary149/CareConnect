@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Patient Dashboard - CareConnect</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            margin: 0;
+        }
+
+        .navbar {
+            background: #0d6efd;
+            color: white;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar h2 {
+            margin: 0;
+        }
+
+        .logout {
+            color: white;
+            text-decoration: none;
+            background: #dc3545;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+
+        .container {
+            width: 90%;
+            margin: 40px auto;
+        }
+
+        h1 {
+            color: #0d6efd;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            color: #0d6efd;
+        }
+
+        .card p {
+            color: #666;
+        }
+
+        .button {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 18px;
+            background: #0d6efd;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .button:hover {
+            background: #0b5ed7;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <h2>CareConnect</h2>
+
+    <a href="/logout" class="logout">
+        Logout
+    </a>
+
+</div>
+
+<div class="container">
+
+    <h1>Patient Dashboard</h1>
+
+    <p>Welcome to your CareConnect Patient Portal.</p>
+
+    <div class="cards">
+
+        <!-- Patient Portal -->
+
+        <div class="card">
+
+            <h3>My Health Portal</h3>
+
+            <p>
+                View your appointments, medical records
+                and prescriptions.
+            </p>
+
+            <a href="/patient-portal"
+               class="button">
+                Open Portal
+            </a>
+
+        </div>
+
+
+        <!-- Appointments -->
+
+        <div class="card">
+
+            <h3>Appointments</h3>
+
+            <p>
+                Book and view your appointments.
+            </p>
+
+            <a href="/book-appointment"
+               class="button">
+                Book Appointment
+            </a>
+
+            <a href="/appointments"
+               class="button">
+                View Appointments
+            </a>
+
+        </div>
+
+
+        <!-- Medical Records -->
+
+        <div class="card">
+
+            <h3>Medical Records</h3>
+
+            <p>
+                View your clinical records and diagnosis.
+            </p>
+
+            <a href="/medical-records"
+               class="button">
+                View Records
+            </a>
+
+        </div>
+
+
+        <!-- Prescriptions -->
+
+        <div class="card">
+
+            <h3>Prescriptions</h3>
+
+            <p>
+                View medicines prescribed by your doctor.
+            </p>
+
+            <a href="/prescriptions"
+               class="button">
+                View Prescriptions
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
